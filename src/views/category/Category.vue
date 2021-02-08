@@ -1,151 +1,192 @@
 <!--  -->
 <template>
-  <div class="wrapper" ref="scroll">
-    <ul class="content">
-      <button @click="testButton">点击</button>
-      <li>分类列表1</li>
-      <li>分类列表2</li>
-      <li>分类列表3</li>
-      <li>分类列表4</li>
-      <li>分类列表5</li>
-      <li>分类列表6</li>
-      <li>分类列表7</li>
-      <li>分类列表8</li>
-      <li>分类列表9</li>
-      <li>分类列表10</li>
-      <li>分类列表11</li>
-      <li>分类列表12</li>
-      <li>分类列表13</li>
-      <li>分类列表14</li>
-      <li>分类列表15</li>
-      <li>分类列表16</li>
-      <li>分类列表17</li>
-      <li>分类列表18</li>
-      <li>分类列表19</li>
-      <li>分类列表20</li>
-      <li>分类列表21</li>
-      <li>分类列表22</li>
-      <li>分类列表23</li>
-      <li>分类列表24</li>
-      <li>分类列表25</li>
-      <li>分类列表26</li>
-      <li>分类列表27</li>
-      <li>分类列表28</li>
-      <li>分类列表29</li>
-      <li>分类列表30</li>
-      <li>分类列表31</li>
-      <li>分类列表32</li>
-      <li>分类列表33</li>
-      <li>分类列表34</li>
-      <li>分类列表35</li>
-      <li>分类列表36</li>
-      <li>分类列表37</li>
-      <li>分类列表38</li>
-      <li>分类列表39</li>
-      <li>分类列表40</li>
-      <li>分类列表41</li>
-      <li>分类列表42</li>
-      <li>分类列表43</li>
-      <li>分类列表44</li>
-      <li>分类列表45</li>
-      <li>分类列表46</li>
-      <li>分类列表47</li>
-      <li>分类列表48</li>
-      <li>分类列表49</li>
-      <li>分类列表50</li>
-      <li>分类列表51</li>
-      <li>分类列表52</li>
-      <li>分类列表53</li>
-      <li>分类列表54</li>
-      <li>分类列表55</li>
-      <li>分类列表56</li>
-      <li>分类列表57</li>
-      <li>分类列表58</li>
-      <li>分类列表59</li>
-      <li>分类列表60</li>
-      <li>分类列表61</li>
-      <li>分类列表62</li>
-      <li>分类列表63</li>
-      <li>分类列表64</li>
-      <li>分类列表65</li>
-      <li>分类列表66</li>
-      <li>分类列表67</li>
-      <li>分类列表68</li>
-      <li>分类列表69</li>
-      <li>分类列表70</li>
-      <li>分类列表71</li>
-      <li>分类列表72</li>
-      <li>分类列表73</li>
-      <li>分类列表74</li>
-      <li>分类列表75</li>
-      <li>分类列表76</li>
-      <li>分类列表77</li>
-      <li>分类列表78</li>
-      <li>分类列表79</li>
-      <li>分类列表80</li>
-      <li>分类列表81</li>
-      <li>分类列表82</li>
-      <li>分类列表83</li>
-      <li>分类列表84</li>
-      <li>分类列表85</li>
-      <li>分类列表86</li>
-      <li>分类列表87</li>
-      <li>分类列表88</li>
-      <li>分类列表89</li>
-      <li>分类列表90</li>
-      <li>分类列表91</li>
-      <li>分类列表92</li>
-      <li>分类列表93</li>
-      <li>分类列表94</li>
-      <li>分类列表95</li>
-      <li>分类列表96</li>
-      <li>分类列表97</li>
-      <li>分类列表98</li>
-      <li>分类列表99</li>
-      <li>分类列表100</li>
-    </ul>
+  <div class="category">
+    <scroll
+      ref="scroll"
+      class="content"
+      :probeType="3"
+      @scroll="contentClick()"
+    >
+      <div>
+        <p>测试内容1</p>
+        <p>测试内容2</p>
+        <p>测试内容3</p>
+        <p>测试内容4</p>
+        <p>测试内容5</p>
+        <p>测试内容6</p>
+        <p>测试内容7</p>
+        <p>测试内容8</p>
+        <p>测试内容9</p>
+        <p>测试内容10</p>
+        <p>测试内容11</p>
+        <p>测试内容12</p>
+        <p>测试内容13</p>
+        <p>测试内容14</p>
+        <p>测试内容15</p>
+        <p>测试内容16</p>
+        <p>测试内容17</p>
+        <p>测试内容18</p>
+        <p>测试内容19</p>
+        <p>测试内容20</p>
+        <p>测试内容21</p>
+        <p>测试内容22</p>
+        <p>测试内容23</p>
+        <p>测试内容24</p>
+        <p>测试内容25</p>
+        <p>测试内容26</p>
+        <p>测试内容27</p>
+        <p>测试内容28</p>
+        <p>测试内容29</p>
+        <p>测试内容30</p>
+        <p>测试内容31</p>
+        <p>测试内容32</p>
+        <p>测试内容33</p>
+        <p>测试内容34</p>
+        <p>测试内容35</p>
+        <p>测试内容36</p>
+        <p>测试内容37</p>
+        <p>测试内容38</p>
+        <p>测试内容39</p>
+        <p>测试内容40</p>
+        <p>测试内容41</p>
+        <p>测试内容42</p>
+        <p>测试内容43</p>
+        <p>测试内容44</p>
+        <p>测试内容45</p>
+        <p>测试内容46</p>
+        <p>测试内容47</p>
+        <p>测试内容48</p>
+        <p>测试内容49</p>
+        <p>测试内容50</p>
+        <ul>
+          <li>列表内容1</li>
+          <li>列表内容2</li>
+          <li>列表内容3</li>
+          <li>列表内容4</li>
+          <li>列表内容5</li>
+          <li>列表内容6</li>
+          <li>列表内容7</li>
+          <li>列表内容8</li>
+          <li>列表内容9</li>
+          <li>列表内容10</li>
+          <li>列表内容11</li>
+          <li>列表内容12</li>
+          <li>列表内容13</li>
+          <li>列表内容14</li>
+          <li>列表内容15</li>
+          <li>列表内容16</li>
+          <li>列表内容17</li>
+          <li>列表内容18</li>
+          <li>列表内容19</li>
+          <li>列表内容20</li>
+          <li>列表内容21</li>
+          <li>列表内容22</li>
+          <li>列表内容23</li>
+          <li>列表内容24</li>
+          <li>列表内容25</li>
+          <li>列表内容26</li>
+          <li>列表内容27</li>
+          <li>列表内容28</li>
+          <li>列表内容29</li>
+          <li>列表内容30</li>
+          <li>列表内容31</li>
+          <li>列表内容32</li>
+          <li>列表内容33</li>
+          <li>列表内容34</li>
+          <li>列表内容35</li>
+          <li>列表内容36</li>
+          <li>列表内容37</li>
+          <li>列表内容38</li>
+          <li>列表内容39</li>
+          <li>列表内容40</li>
+          <li>列表内容41</li>
+          <li>列表内容42</li>
+          <li>列表内容43</li>
+          <li>列表内容44</li>
+          <li>列表内容45</li>
+          <li>列表内容46</li>
+          <li>列表内容47</li>
+          <li>列表内容48</li>
+          <li>列表内容49</li>
+          <li>列表内容50</li>
+          <li>列表内容51</li>
+          <li>列表内容52</li>
+          <li>列表内容53</li>
+          <li>列表内容54</li>
+          <li>列表内容55</li>
+          <li>列表内容56</li>
+          <li>列表内容57</li>
+          <li>列表内容58</li>
+          <li>列表内容59</li>
+          <li>列表内容60</li>
+          <li>列表内容61</li>
+          <li>列表内容62</li>
+          <li>列表内容63</li>
+          <li>列表内容64</li>
+          <li>列表内容65</li>
+          <li>列表内容66</li>
+          <li>列表内容67</li>
+          <li>列表内容68</li>
+          <li>列表内容69</li>
+          <li>列表内容70</li>
+          <li>列表内容71</li>
+          <li>列表内容72</li>
+          <li>列表内容73</li>
+          <li>列表内容74</li>
+          <li>列表内容75</li>
+          <li>列表内容76</li>
+          <li>列表内容77</li>
+          <li>列表内容78</li>
+          <li>列表内容79</li>
+          <li>列表内容80</li>
+          <li>列表内容81</li>
+          <li>列表内容82</li>
+          <li>列表内容83</li>
+          <li>列表内容84</li>
+          <li>列表内容85</li>
+          <li>列表内容86</li>
+          <li>列表内容87</li>
+          <li>列表内容88</li>
+          <li>列表内容89</li>
+          <li>列表内容90</li>
+          <li>列表内容91</li>
+          <li>列表内容92</li>
+          <li>列表内容93</li>
+          <li>列表内容94</li>
+          <li>列表内容95</li>
+          <li>列表内容96</li>
+          <li>列表内容97</li>
+          <li>列表内容98</li>
+          <li>列表内容99</li>
+          <li>列表内容100</li>
+        </ul>
+      </div>
+    </scroll>
   </div>
 </template>
 
 <script>
-import BScroll from "better-scroll";
+import Scroll from "components/common/scroll/Scroll.vue";
 export default {
   data() {
-    return {
-      scroll: null
-    };
+    return {};
   },
-  mounted() {
-    console.log(this.$refs.scroll);
-    //只能用refs形式，不能用类名
-    this.scroll = new BScroll(this.$refs.scroll, {
-      probeType: 3,
-      pullUpLoad: true, //向上加载
-      click: false //监听时间,如果事件被阻止了需要设置该属性为true
-    });
-    this.scroll.on("scroll", position => {
-      //console.log(position);
-    });
-    this.scroll.on("pullingUp", () => {
-      console.log("向上加载");
-      setTimeout(() => {
-        this.scroll.finishPullUp();
-      }, 2000);
-    });
+  mounted() {},
+  methods: {},
+  components: {
+    Scroll
   },
   methods: {
-    testButton() {
-      console.log("测试点击按钮成功!");
+    contentClick(position) {
+      console.log(position);
     }
   }
 };
 </script>
 
 <style scoped>
-.wrapper {
-  height: 150px;
-  background-color: yellowgreen;
+.content {
+  height: 500px;
   overflow: hidden;
-  /* overflow-y: scroll;  */
 }
 </style>

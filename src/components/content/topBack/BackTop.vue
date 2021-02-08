@@ -1,6 +1,6 @@
 <!--  -->
 <template>
-  <div class="back-top">
+  <div class="back-top" @click="btnClick">
     <slot></slot>
   </div>
 </template>
@@ -12,7 +12,7 @@ export default {
   },
   methods: {
     btnClick() {
-      // this.$emit("backTop");
+      this.$emit("backTop");
     }
   }
 };

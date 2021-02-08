@@ -4,8 +4,16 @@
     <nav-bar class="home-nav">
       <div slot="center">购物街</div>
     </nav-bar>
-    <scroll class="content" ref="scroll">
-      <div>
+
+    <scroll
+      ref="scroll"
+      class="scroll"
+      :probeType="3"
+      @scroll="contentClick"
+      :pullUpload="true"
+      @pillingUp="loadMore"
+    >
+      <div class="content">
         <home-swiper :banners="banners"></home-swiper>
         <recommend-view :recommends="recommends"></recommend-view>
         <feature-view></feature-view>
@@ -18,9 +26,9 @@
         <good-list :goods="showGoods"></good-list>
       </div>
     </scroll>
-    <top-back @click.native="backClick" class="top-back">
+    <back-top class="back-top" v-show="isShowTopBack" @backTop="backTopClick">
       <img src="~assets/img/common/top.png" />
-    </top-back>
+    </back-top>
   </div>
 </template>
 
@@ -29,7 +37,7 @@ import NavBar from "components/common/navbar/NavBar.vue";
 import TabControl from "components/content/tabControl/TabControl.vue";
 import GoodList from "components/content/goods/GoodList.vue";
 import Scroll from "../../components/common/scroll/Scroll.vue";
-import TopBack from "../../components/content/topBack/TopBack.vue";
+import BackTop from "../../components/content/topBack/BackTop.vue";
 
 import { getHomeMultidata, getHomeGoods } from "network/home.js";
 
@@ -43,11 +51,12 @@ export default {
       banners: [],
       recommends: [],
       goods: {
-        pop: { page: 0, list: [] },
-        new: { page: 0, list: [] },
-        sell: { page: 0, list: [] }
+        pop: { page: 1, list: [] },
+        new: { page: 1, list: [] },
+        sell: { page: 1, list: [] }
       },
-      currentType: "pop"
+      currentType: "pop",
+      isShowTopBack: false
     };
   },
   created() {
@@ -76,9 +85,23 @@ export default {
           break;
       }
     },
-    backClick() {
+    backTopClick() {
+      console.log("回到顶部");
       this.$refs.scroll.scrollTo(0, 0);
-      console.log(this.$refs.scroll.scrollTo);
+      console.log(this.$refs.scroll.scroll);
+    },
+    contentClick(position) {
+      // console.log(position);
+      this.isShowTopBack = position.y < -1000;
+      // console.log(position.y < -1000);
+    },
+
+    loadMore() {
+      console.log("向上加载更多");
+
+      /* this.$refs.scroll.scroll.finishPullUp(); */
+      this.getHomeGoods(this.currentType);
+      // this.$refs.scroll.scroll.refresh();
     },
     // 网络请求相关方法
     getHomeMultidata() {
@@ -89,12 +112,16 @@ export default {
       });
     },
     getHomeGoods(type) {
-      let page = this.goods[type].page + 1;
-      getHomeGoods(type, page).then(res => {
+      getHomeGoods(type, this.goods[type].page).then(res => {
         //...语法会将数组中的数据一个个的push进list数组中
         this.goods[type].list.push(...res.data.list);
         this.goods[type].page += 1;
+        console.log(this.goods[type].page);
+        this.finishPullUp();
       });
+    },
+    finishPullUp() {
+      return this.$refs.scroll.scroll.finishPullUp();
     }
   },
   components: {
@@ -105,7 +132,7 @@ export default {
     FeatureView,
     GoodList,
     Scroll,
-    TopBack
+    BackTop
   }
 };
 </script>
@@ -125,25 +152,22 @@ export default {
   z-index: 9;
 }
 .tab-control {
-  position: sticky;
+  /* position: sticky; */
   top: 44px;
   z-index: 9;
 }
-.content {
-  position: absolute;
-  top: 44px;
-  bottom: 49px;
-  left: 0;
-  right: 0;
+
+.scroll {
+  height: 100px;
 }
-/* .content {
-  height: calc(100%-93px);
-  overflow: hidden;
-  margin-top: 44px;
-} */
-.top-back {
+.content {
+  /* height: calc(100% - 93px);  */
+  height: 4300px;
+}
+
+.back-top {
   position: fixed;
-  right: 10px;
+  right: 20px;
   bottom: 60px;
 }
 </style>
